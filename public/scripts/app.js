@@ -5,3 +5,15 @@
  */
 
 
+const data = {
+  
+};
+
+const renderTweets = function(tweet) {
+
+}
+
+
+const createTweetElement = function(tweet) {
+
+}

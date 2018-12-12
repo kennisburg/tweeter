@@ -61,16 +61,16 @@ input {
 }
 
 #propic {
-  display: inline-block;
+  display: inline;
 }
 
 #name {
-  display: inline-block;
+  display: inline;
 }
 
 #handle {
-  display: inline;
   float: right;
+  display: inline;
 }
 
 #timestamp {
