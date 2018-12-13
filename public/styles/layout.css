@@ -45,35 +45,35 @@ input {
   display: inline;
 }
 
-#wholetweet {
+.wholetweet {
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
 }
 
-#wholetweet:hover {
+.wholetweet:hover {
   background-color: aqua;
 }
 
-#user {
+.user {
   border-bottom: solid;
   border-width: 1px;
 }
 
-#propic {
+.propic {
   display: inline;
 }
 
-#name {
+.name {
   display: inline;
 }
 
-#handle {
+.handle {
   float: right;
   display: inline;
 }
 
-#timestamp {
+.timestamp {
   border-top: solid;
   border-width: 1px;
 }

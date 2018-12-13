@@ -21,3 +21,10 @@
   width: 80px;
 }
 
+#nav-bar .button {
+  font-size: 18px;
+  width: 100px;
+  height: 40px;
+  float: right;
+  background-color: ghostwhite
+}

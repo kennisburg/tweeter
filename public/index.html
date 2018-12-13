@@ -30,31 +30,38 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <button type='button'>Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class='new-tweet'></section>
       <h2>Compose Tweets</h2>
-      <form>
+      <form class='tweetform'>
         <textarea id='tweetbox' name='text' placeholder="What are you humming about?"></textarea>
         <input type='submit' value='Tweet'>
         <span id='counter' class='counter'>140</span>
       </form>
 
-    <article id='wholetweet'>
-      <section id='user'>
-        <img id='propic' src='https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png'>
-        <h2 id='name'>Albert Einstein</h2>
-        <h6 id='handle'>@GR</h6>
+      <section class="tweetContainer">
+        <article class='wholetweet'>
+          <header class='user'>
+            <img class="propic" src="https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png">
+            <h2 class="name">Rene Descartes</h2>
+            <h3 class="handle">@rd</h3>
+          </header>
+          <p class="tweetp">
+            It is not enough to have a good mind; the main thing is to use it well.
+            Divide each difficulty into as many parts as is feasible and necessary to resolve it.
+            The greatest minds are capable of the greatest vices as well as of the greatest virtues.
+          </p>
+          <footer>
+            <h6 class="timestamp">11 days ago</h6>
+          </footer>
+        </article>
       </section>
-      <section id='tweettext'>
-        <p>God does not play dice with the universe</p>
-      </section>
-      <section id='timestamp'>
-        <p>Yesterrow</p>
-      </section>
-    </article>
+    
+
     </main>
 
 
