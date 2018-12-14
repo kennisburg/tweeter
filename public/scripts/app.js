@@ -76,8 +76,9 @@ $(document).ready(function() {
     var flag =false;
 
     e.preventDefault();
+
     var content = $('#tweetbox').val();
-    console.log(content.length)
+
 
     if(!content){
       flag = true;
@@ -93,7 +94,17 @@ $(document).ready(function() {
       $tweetform.on('submit', submitHandler)
     }
   });
+
+
+
+  const $compose = $('.compose');
   
+  var $newtweet = $('.new-tweet');
+  
+  $compose.click(function() {
+    $newtweet.toggle();
+  });
 
   loadTweets()
+
 })

@@ -37,6 +37,10 @@ textarea {
 input {
 }
 
+.new-tweet {
+  display: none;
+}
+
 .counter {
   float: right;
 }
