@@ -7,6 +7,15 @@
 
 
 $(document).ready(function() {
+
+
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+
   const createTweetElement = function(tweet) {
     let $post = $("<article>").addClass('wholetweet');
     let $header = $('<header>').addClass('user');
@@ -19,16 +28,16 @@ $(document).ready(function() {
   
     $post.append($header);
     $header.append($img);
-    $img.attr("src",tweet.user.avatars.regular)
+    $img.attr("src", tweet.user.avatars.regular)
     $header.append($h2);
     $header.append($h3);
     $h2.text(tweet.user.name);
     $h3.text(tweet.user.handle);
     $post.append($p);
-    $p.text(tweet.content.text);
+    $p.text(escape(tweet.content.text));
     $post.append($footer);
     $footer.append($h6)
-    $h6.text(tweet.created_at);
+    $h6.text(new Date(tweet.created_at));
   
     return $post;
   }
@@ -70,7 +79,22 @@ $(document).ready(function() {
   }
 
 
-  const $tweetform = $(".tweetform")
+
+  const $errormsg = $('.errormsg');
+
+  const $tweetform = $(".tweetform");
+
+  const $submittweet = $('.submittweet');
+
+  $submittweet.bind('custom', function(err) {
+    $('span')
+     .stop()
+     .css('opacity', 1)
+     .text(err)
+     .fadeIn( 30 )
+     .fadeOut( 1000 );
+  })
+
   $tweetform.on('submit', function(e){
 
     var flag =false;
@@ -79,21 +103,25 @@ $(document).ready(function() {
 
     var content = $('#tweetbox').val();
 
+    const $errormsg = $('.errormsg');
+
 
     if(!content){
       flag = true;
-      alert("Please enter some text before posting");
-    } else if (content.length > 140) {
+      $errormsg.text("Nothing to Tweet?").css('color', 'red');
+    } else if (content.length >= 140) {
       flag = true;
-      alert("too long");
+      $errormsg.text("Too much to Tweet...").css('color', 'red')
     } else {
       flag = false;
     }
     
     if(!flag) {
-      $tweetform.on('submit', submitHandler)
+      $tweetform.click(submitHandler);
+
     }
   });
+
 
 
 

@@ -6,6 +6,7 @@
   padding-right: 2em;
   padding-left: 2em;
   position: fixed;
+  z-index: 1;
 }
 
 #nav-bar .header {
@@ -21,10 +22,13 @@
   width: 80px;
 }
 
-#nav-bar .button {
-  font-size: 18px;
+#nav-bar .compose {
+  position: relative;
+  font-size: 16px;
   width: 100px;
   height: 40px;
   float: right;
-  background-color: ghostwhite
+  background-color: ghostwhite;
+  top: 25%;
+  border-radius: 5%;
 }
