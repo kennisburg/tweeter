@@ -68,14 +68,57 @@ textarea {
   opacity: 0.7;
 }
 
-.wholetweet:hover {
+
+
+.like {
+  width: 2.5em;
+  height: 2.5em;
+  float: right;
+  opacity: 0;
+}
+
+
+.retweet {
+  width: 2.5em;
+  height: 2.5em;
+  float: right;
+  opacity: 0;
+}
+
+
+.flag {
+  width: 2.5em;
+  height: 2.5em;
+  float: right;
+  opacity: 0;
+}
+
+
+
+.wholetweet:hover{
   opacity: 1;
 }
+
+.wholetweet:hover .flag {
+  opacity: 1;
+}
+
+.wholetweet:hover .retweet {
+  opacity: 1;
+}
+
+.wholetweet:hover .like {
+  opacity: 1;
+}
+
+
+
 
 .user {
   border-bottom: solid;
   border-width: 0.1em;
   padding: 0.5em;
+  background-color: #e2e2e2
 }
 
 .propic {
@@ -97,9 +140,13 @@ textarea {
   word-wrap: break-word;
 }
 
-.timestamp {
+.tweetfoot {
   border-top: solid;
   border-width: 0.1em;
+  height: 4em;
+}
+
+.timestamp {
   padding: 0.5em;
 }
 

@@ -8,13 +8,18 @@
 
 $(document).ready(function() {
 
+  
 
-  function escape(str) {
+  const $tweetform = $(".tweetform");
+  const $compose = $('.compose');
+  const $newtweet = $('.new-tweet');
+  const $container = $('.tweetContainer');
+
+  const escape = function(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
 
   const createTweetElement = function(tweet) {
     let $post = $("<article>").addClass('wholetweet');
@@ -23,9 +28,13 @@ $(document).ready(function() {
     let $h2 = $('<h2>').addClass('name');
     let $h3 = $('<h3>').addClass('handle');
     let $p = $('<p>').addClass('tweetp');
-    let $footer = $('<footer>');
-    let $h6 = $('<h6>').addClass('timestamp');
-  
+    let $footer = $('<footer>').addClass('tweetfoot');;
+    let $footspan = $('<span>')
+    let $timespan = $('<span>').addClass('timestamp');
+    let $options = $('<span>').addClass('options')
+    let $flag = $('<img>').addClass('flag')
+    let $retweet = $('<img>').addClass('retweet')
+    let $like = $('<img>').addClass('like')
     $post.append($header);
     $header.append($img);
     $img.attr("src", tweet.user.avatars.regular)
@@ -36,14 +45,42 @@ $(document).ready(function() {
     $post.append($p);
     $p.text(escape(tweet.content.text));
     $post.append($footer);
-    $footer.append($h6)
-    $h6.text(new Date(tweet.created_at));
-  
+    $footer.append($footspan);
+    $footspan.append($timespan);
+    $footspan.append($options);
+    $options.append($like, $retweet, $flag);
+    $flag.attr('src', function() {
+      return 'images/flag.png'
+    })
+    $retweet.attr('src', function() {
+      return 'images/refresh.png'
+    })
+    $like.attr('src', function() {
+      return 'images/heart.png'
+    })
+
+    var now = Date.now();
+    var then = tweet.created_at;
+    var since = (now - then) / 1000;
+
+    if (since < 60) {
+      $timespan.text(since + ' seconds ago')
+    } 
+    
+    if (since > 60) {
+      $timespan.text(Math.floor(since/60) + ' min ago')
+    }
+    
+    if (since/60 > 60) {
+      $timespan.text(Math.floor((since/60)/60) + ' hours ago')
+    }
+    
+    if (Math.floor((since/60)/24 > 24)) {
+      $timespan.text(Math.floor(((since/60)/60)/24) + ' days ago')
+    }
+
     return $post;
   }
-
-  const $container = $('.tweetContainer');
-
 
   const renderTweets = function(tweet) {
     $container.empty();
@@ -53,8 +90,6 @@ $(document).ready(function() {
     }
   }
 
-
-
   const loadTweets = function() {
     $.ajax({url: '/tweets', 
       method: 'GET', 
@@ -63,9 +98,9 @@ $(document).ready(function() {
     }})
   }
 
-
   const submitHandler = function(event) {
     event.preventDefault();
+    
     $.ajax({data: $(this).serialize(),
       url:'/tweets',
       method:"POST",
@@ -78,61 +113,30 @@ $(document).ready(function() {
     })
   }
 
-
-
-  const $errormsg = $('.errormsg');
-
-  const $tweetform = $(".tweetform");
-
-  const $submittweet = $('.submittweet');
-
-  $submittweet.bind('custom', function(err) {
-    $('span')
-     .stop()
-     .css('opacity', 1)
-     .text(err)
-     .fadeIn( 30 )
-     .fadeOut( 1000 );
-  })
-
   $tweetform.on('submit', function(e){
-
-    var flag =false;
-
     e.preventDefault();
 
-    var content = $('#tweetbox').val();
-
+    var flag =false;
+    const content = $('#tweetbox').val();
     const $errormsg = $('.errormsg');
-
-
     if(!content){
       flag = true;
       $errormsg.text("Nothing to Tweet?").css('color', 'red');
     } else if (content.length >= 140) {
       flag = true;
-      $errormsg.text("Too much to Tweet...").css('color', 'red')
+      $errormsg.text("Too much to Tweet...").css('color', 'red');
     } else {
       flag = false;
     }
-    
     if(!flag) {
       $tweetform.click(submitHandler);
-
     }
   });
-
-
-
-
-  const $compose = $('.compose');
-  
-  var $newtweet = $('.new-tweet');
   
   $compose.click(function() {
     $newtweet.toggle();
   });
 
-  loadTweets()
+  loadTweets();
 
 })
