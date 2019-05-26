@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <title>Tweeter - Home Page</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+
+
+    <!-- External JS -->
+    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type='text/javascript' src='/scripts/composer-char-counter.js'></script>
+  </head>
+
+  <body>
+
+    
+    <!-- Top nav bar (fixed) -->
+    <nav id="nav-bar">
+      <img class="logo" src="/images/bird.png">
+      <span class="header">Tweeter</span>
+      <button class='compose' type='button'>Compose</button>
+    </nav>
+
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <section class='new-tweet'>
+        <h2>Compose Tweets</h2>
+        <form class='tweetform'>
+          <textarea id='tweetbox' name='text' placeholder="What are you humming about?"></textarea>
+          <input class='submittweet' type='submit' value='Tweet'>
+          <span id='counter' class='counter'>140</span>
+          <span class='errormsg'></span>
+
+        </form>
+      </section>
+
+      <section class="tweetContainer">
+        <article class='wholetweet'>
+          <header class='user'>
+            <img class="propic" src="https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png">
+            <h2 class="name">Rene Descartes</h2>
+            <h3 class="handle">@rd</h3>
+          </header>
+          <p class="tweetp">
+            It is not enough to have a good mind; the main thing is to use it well.
+            Divide each difficulty into as many parts as is feasible and necessary to resolve it.
+            The greatest minds are capable of the greatest vices as well as of the greatest virtues.
+          </p>
+          <footer>
+            <h6 class="timestamp">11 days ago</h6>
+          </footer>
+        </article>
+      </section>
+    
+
+    </main>
+
+
+  </body>
+</html>

@@ -1,0 +1,157 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  justify-content: center;
+  display: flex;
+}
+
+main {
+  padding-top: 80px;
+  width: 450px;
+  height: 100%;
+  background-color: white;
+}
+
+textarea {
+  width: 100%;
+}
+
+.error0 {
+  visibility: hidden;
+}
+
+.error140 {
+  visibility: hidden;
+}
+
+.new-tweet {
+  display: none;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #e2e2e2;
+  border-width: 0.1em;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.counter {
+  float: right;
+}
+
+#tweet {
+  display: inline;
+}
+
+.wholetweet {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0.1em;
+  border-radius: 5px;
+  opacity: 0.7;
+}
+
+
+
+.like {
+  width: 2.5em;
+  height: 2.5em;
+  float: right;
+  opacity: 0;
+}
+
+
+.retweet {
+  width: 2.5em;
+  height: 2.5em;
+  float: right;
+  opacity: 0;
+}
+
+
+.flag {
+  width: 2.5em;
+  height: 2.5em;
+  float: right;
+  opacity: 0;
+}
+
+
+
+.wholetweet:hover{
+  opacity: 1;
+}
+
+.wholetweet:hover .flag {
+  opacity: 1;
+}
+
+.wholetweet:hover .retweet {
+  opacity: 1;
+}
+
+.wholetweet:hover .like {
+  opacity: 1;
+}
+
+
+
+
+.user {
+  border-bottom: solid;
+  border-width: 0.1em;
+  padding: 0.5em;
+  background-color: #e2e2e2
+}
+
+.propic {
+  display: inline;
+  padding-right: 0.25em;
+}
+
+.name {
+  display: inline;
+}
+
+.handle {
+  float: right;
+  display: inline;
+}
+
+.tweetp {
+  padding: 0.5em;
+  word-wrap: break-word;
+}
+
+.tweetfoot {
+  border-top: solid;
+  border-width: 0.1em;
+  height: 4em;
+}
+
+.timestamp {
+  padding: 0.5em;
+}
+
+
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
